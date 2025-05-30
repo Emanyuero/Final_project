@@ -4,6 +4,9 @@
 <div class="text-center">
     <h1 class="display-5 mb-4">🔍 Search Saved Jokes</h1>
 
+    <!-- Back Button -->
+    <a href="{{ route('home') }}" class="btn btn-secondary mb-4">Back to Home</a>
+
     <form method="GET" action="{{ route('jokes.search') }}" class="mb-4 d-flex justify-content-center">
         <div class="input-group" style="max-width: 600px; width: 100%;">
             <input

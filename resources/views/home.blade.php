@@ -33,7 +33,7 @@
       </div>
       <div class="modal-body" id="successMessage"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="closeSuccessModal">OK</button>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
       </div>
       <div class="modal-body" id="errorMessage"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="closeErrorModal">Close</button>
       </div>
     </div>
   </div>
@@ -63,11 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const successModal = new bootstrap.Modal(document.getElementById('successModal'));
     const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
 
+    // Function to fetch and display a random joke
     window.getJoke = function() {
         const jokeBox = document.getElementById("joke");
         // Clear joke box while loading
         jokeBox.innerHTML = "";
 
+        // Show loading modal
         loadingModal.show();
 
         fetch('/api/joke')
@@ -97,10 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorModal.show();
             })
             .finally(() => {
+                // Hide loading modal once the joke is loaded or error occurs
                 loadingModal.hide();
             });
     }
 
+    // Function to save the joke
     window.saveJoke = function(jokeData) {
         loadingModal.show();
 
@@ -136,9 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
             errorModal.show();
         })
         .finally(() => {
+            // Hide loading modal once the joke is saved or error occurs
             loadingModal.hide();
         });
     }
+
+    // Close the success modal and ensure loading modal is hidden
+    document.getElementById('closeSuccessModal')?.addEventListener('click', () => {
+        loadingModal.hide();
+    });
+
+    // Close the error modal and ensure loading modal is hidden
+    document.getElementById('closeErrorModal')?.addEventListener('click', () => {
+        loadingModal.hide();
+    });
 });
 </script>
 @endpush

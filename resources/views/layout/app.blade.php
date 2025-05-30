@@ -11,56 +11,87 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet" />
 
+    <!-- Font Awesome for icons (optional for social media links) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
     <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background: linear-gradient(135deg, #a3c9e2 0%, #f3c0c0 100%);
+            background-size: cover;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
         .container {
             flex: 1;
+            width: 100%;
         }
+
         h1, h2 {
             text-align: center;
             margin-top: 20px;
             color: #333;
         }
+
         .btn-primary {
             background-color: #ff7b54;
             border-color: #ff7b54;
         }
+
         .btn-success {
             background-color: #28b487;
             border-color: #28b487;
         }
+
         .card {
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Enhanced Footer Styles */
         footer {
-            background: #333;
+            background: linear-gradient(145deg, #ff7b54, #ffb4a2);
             color: #fff;
-            padding: 15px 0;
+            padding: 30px 0;
             text-align: center;
-            font-size: 14px;
+            font-size: 16px;
             margin-top: auto;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
-        .joke-animated {
-            animation: fadeInUp 0.5s ease-out;
+
+        footer a:hover {
+            color: #ffb4a2;
         }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Social Icons */
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffb4a2;
+        }
+
         .search-jokes-link {
             display: inline-block;
             margin-bottom: 1rem;
@@ -73,11 +104,27 @@
             text-decoration: none;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .search-jokes-link:hover,
         .search-jokes-link:focus {
             background-color: #ff7b54;
             color: white;
             text-decoration: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .joke-animated {
+            animation: fadeInUp 0.5s ease-out;
         }
     </style>
 </head>
@@ -91,8 +138,24 @@
         @yield('content')
     </div>
 
+    <!-- Enhanced Footer -->
     <footer>
-        Made with 🤪 by <strong>Emman and Ando</strong> | Laravel + JokeAPI
+        <div class="container">
+            <p>Made with 🤪 by <strong>Emman and Noel</strong> | Powered by <a href="https://jokeapi.dev/" target="_blank" rel="noopener noreferrer">JokeAPI</a></p>
+            
+            <!-- Social Media Links (optional) -->
+            <div class="social-icons">
+                <a href="https://github.com/emman-and-noel" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/EmmanAndNoel" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/emman-and-noel" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 
     <!-- Loading Modal -->
